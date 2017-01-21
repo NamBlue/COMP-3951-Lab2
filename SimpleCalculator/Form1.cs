@@ -12,6 +12,9 @@ namespace SimpleCalculator
 {
     public partial class Form1 : Form
     {
+        private List<double> _operands;
+        private List<string> _operators;
+
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +28,14 @@ namespace SimpleCalculator
                 if(sender is Button)
                 {
                     Button button = (Button)sender;
-                    Display.Text += button.Text;
+                    if (button.Text == "+/-")
+                    {
+                        
+                    }
+                    else
+                    {
+                        Display.Text += button.Text;
+                    }
                 }
             }
             catch(Exception ex)
@@ -38,9 +48,33 @@ namespace SimpleCalculator
             }
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void operatorButton_Click(object sender, EventArgs e)
         {
+            System.Diagnostics.Debug.Print("Entered operatorButton_Click");
+            try
+            {
+                if (sender is Button)
+                {
+                    Button button = (Button)sender;
 
+                    if (!String.IsNullOrWhiteSpace(Display.Text))
+                    {
+                        _operands.Add(double.Parse(Display.Text));
+                    }
+                    _operators.Add(button.Text);
+                    Display.Text += button.Text;
+                    EquationDisplay.Text += Display.Text;
+                    Display.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print(ex.ToString());
+            }
+            finally
+            {
+                System.Diagnostics.Debug.Print("Exiting operatorButton_Click");
+            }
         }
     }
 }

@@ -60,6 +60,7 @@
             this.opertBox = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.EquationDisplay = new System.Windows.Forms.Label();
             this.numGroup.SuspendLayout();
             this.onGroup.SuspendLayout();
             this.memoryGroup.SuspendLayout();
@@ -175,7 +176,6 @@
             this.buttonAdd.TabIndex = 11;
             this.buttonAdd.Text = "+";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonSub
             // 
@@ -386,11 +386,20 @@
             this.pictureBox1.TabIndex = 31;
             this.pictureBox1.TabStop = false;
             // 
+            // EquationDisplay
+            // 
+            this.EquationDisplay.AutoSize = true;
+            this.EquationDisplay.Location = new System.Drawing.Point(63, 9);
+            this.EquationDisplay.Name = "EquationDisplay";
+            this.EquationDisplay.Size = new System.Drawing.Size(0, 25);
+            this.EquationDisplay.TabIndex = 32;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 894);
+            this.Controls.Add(this.EquationDisplay);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.opertBox);
@@ -444,6 +453,7 @@
         private System.Windows.Forms.GroupBox opertBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label EquationDisplay;
     }
 }
 
