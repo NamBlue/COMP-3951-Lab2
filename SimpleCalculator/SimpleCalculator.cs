@@ -52,10 +52,21 @@ namespace SimpleCalculator
                     Button button = (Button)sender;
                     if (button.Text == "+/-")
                     {
-                        
+                        if(Display.Text.StartsWith("-"))
+                        {
+                            Display.Text = Display.Text.Remove(0, 1);
+                        }
+                        else
+                        {
+                            Display.Text = Display.Text.Insert(0, "-");
+                        }
                     }
                     else
                     {
+                        if (Display.Text.StartsWith("0"))
+                        {
+                            Display.Text = Display.Text.Remove(0, 1);
+                        }
                         Display.Text += button.Text;
                     }
                 }
@@ -121,16 +132,20 @@ namespace SimpleCalculator
                     switch (button.Text)
                     {
                         case "CE":
-                            Display.Text = "";
+                            Display.Text = "0";
                             break;
                         case "C":
                             _total = 0;
                             _operators.Clear();
                             _operands.Clear();
                             EquationDisplay.Text = "";
-                            Display.Text = "";
+                            Display.Text = "0";
                             break;
                         case "<-":
+                            if(!string.IsNullOrWhiteSpace(Display.Text))
+                            {
+                                Display.Text = Display.Text.Remove(Display.Text.Length - 1, 1);
+                            }                            
                             break;
                         case "=":
                             _operands.Add(double.Parse(Display.Text));
