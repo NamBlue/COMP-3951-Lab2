@@ -43,6 +43,7 @@
             this.buttonSub = new System.Windows.Forms.Button();
             this.buttonMult = new System.Windows.Forms.Button();
             this.buttonDiv = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // clear
@@ -180,11 +181,19 @@
             this.buttonDiv.Text = "/";
             this.buttonDiv.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(53, 37);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(573, 31);
+            this.textBox1.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 603);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonDiv);
             this.Controls.Add(this.buttonMult);
             this.Controls.Add(this.buttonSub);
@@ -203,6 +212,7 @@
             this.Name = "Form1";
             this.Text = "Calculator";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -223,6 +233,7 @@
         private System.Windows.Forms.Button buttonSub;
         private System.Windows.Forms.Button buttonMult;
         private System.Windows.Forms.Button buttonDiv;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
