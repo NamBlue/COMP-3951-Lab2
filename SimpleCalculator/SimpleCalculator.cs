@@ -11,9 +11,9 @@ using System.Windows.Forms;
 namespace SimpleCalculator
 {
     /// <summary>
-    /// Purpose: To initalize the Calculator form
+    /// Purpose: To create a simple calculator.  
     /// Input: None
-    /// Output: None
+    /// Output: Displays a calculator
     /// Author: George Lee and Steven Ma
     /// Date: 21/01/2017
     /// Updated by:George Lee and Steven Ma
@@ -27,7 +27,7 @@ namespace SimpleCalculator
         private double _total;
 
         /// <summary>
-        /// 
+        /// Constructor for the Simple Calculator
         /// </summary>
         public SimpleCalculator()
         {
@@ -38,7 +38,7 @@ namespace SimpleCalculator
         }
 
         /// <summary>
-        /// 
+        /// Checks the type of number button clicked to display
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -71,7 +71,7 @@ namespace SimpleCalculator
         }
 
         /// <summary>
-        /// 
+        /// Checks the type of operator clicked to use
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -105,7 +105,7 @@ namespace SimpleCalculator
         }
 
         /// <summary>
-        /// 
+        /// Checks whether the user wishes to clear all, clear screen, backspace or evaluate the expression
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -151,7 +151,7 @@ namespace SimpleCalculator
         }
 
         /// <summary>
-        /// 
+        /// Calculates the numbers added depending which operand was clicked
         /// </summary>
         private void calculate()
         {
@@ -197,7 +197,7 @@ namespace SimpleCalculator
         }
 
         /// <summary>
-        /// 
+        /// Displays text change.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

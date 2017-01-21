@@ -15,3 +15,4 @@ C:\Users\steve\Documents\Visual Studio 2015\Projects\COMP-3951-Lab2\SimpleCalcul
 C:\Users\steve\Documents\Visual Studio 2015\Projects\COMP-3951-Lab2\SimpleCalculator\obj\Debug\SimpleCalculator.Properties.Resources.resources
 C:\Users\steve\Documents\Visual Studio 2015\Projects\COMP-3951-Lab2\SimpleCalculator\obj\Debug\SimpleCalculator.exe
 C:\Users\steve\Documents\Visual Studio 2015\Projects\COMP-3951-Lab2\SimpleCalculator\obj\Debug\SimpleCalculator.pdb
+C:\Users\steve\Documents\Visual Studio 2015\Projects\COMP-3951-Lab2\SimpleCalculator\obj\Debug\SimpleCalculator.csprojResolveAssemblyReference.cache

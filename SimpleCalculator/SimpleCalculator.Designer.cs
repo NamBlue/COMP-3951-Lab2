@@ -213,11 +213,11 @@
             // 
             // Display
             // 
-            this.Display.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Display.Location = new System.Drawing.Point(38, 29);
+            this.Display.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Display.Location = new System.Drawing.Point(35, 64);
             this.Display.Name = "Display";
             this.Display.ReadOnly = true;
-            this.Display.Size = new System.Drawing.Size(777, 68);
+            this.Display.Size = new System.Drawing.Size(780, 44);
             this.Display.TabIndex = 15;
             this.Display.TextChanged += new System.EventHandler(this.Display_TextChanged);
             // 
