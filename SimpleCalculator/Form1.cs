@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace SimpleCalculator
 {
-    public partial class Form1 : Form
+    public partial class formCalculator : Form
     {
         private List<double> _operands;
         private List<string> _operators;
 
-        public Form1()
         {
             InitializeComponent();
         }
@@ -49,6 +48,11 @@ namespace SimpleCalculator
         }
 
         private void operatorButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.Print("Entered operatorButton_Click");
             try
