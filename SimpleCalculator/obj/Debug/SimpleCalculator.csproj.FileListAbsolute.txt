@@ -3,8 +3,8 @@ C:\Users\steve\Documents\Visual Studio 2015\Projects\COMP-3951-Lab2\SimpleCalcul
 C:\Users\namblue\OneDrive\Documents\BCIT\COMP 3951\Solutions\Lab2\SimpleCalculator\bin\Debug\SimpleCalculator.exe
 C:\Users\namblue\OneDrive\Documents\BCIT\COMP 3951\Solutions\Lab2\SimpleCalculator\bin\Debug\SimpleCalculator.pdb
 C:\Users\namblue\OneDrive\Documents\BCIT\COMP 3951\Solutions\Lab2\SimpleCalculator\obj\Debug\SimpleCalculator.csprojResolveAssemblyReference.cache
-C:\Users\namblue\OneDrive\Documents\BCIT\COMP 3951\Solutions\Lab2\SimpleCalculator\obj\Debug\SimpleCalculator.Form1.resources
 C:\Users\namblue\OneDrive\Documents\BCIT\COMP 3951\Solutions\Lab2\SimpleCalculator\obj\Debug\SimpleCalculator.Properties.Resources.resources
 C:\Users\namblue\OneDrive\Documents\BCIT\COMP 3951\Solutions\Lab2\SimpleCalculator\obj\Debug\SimpleCalculator.csproj.GenerateResource.Cache
 C:\Users\namblue\OneDrive\Documents\BCIT\COMP 3951\Solutions\Lab2\SimpleCalculator\obj\Debug\SimpleCalculator.exe
 C:\Users\namblue\OneDrive\Documents\BCIT\COMP 3951\Solutions\Lab2\SimpleCalculator\obj\Debug\SimpleCalculator.pdb
+C:\Users\namblue\OneDrive\Documents\BCIT\COMP 3951\Solutions\Lab2\SimpleCalculator\obj\Debug\SimpleCalculator.formCalculator.resources

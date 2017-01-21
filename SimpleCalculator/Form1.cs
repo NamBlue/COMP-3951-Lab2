@@ -15,6 +15,7 @@ namespace SimpleCalculator
         private List<double> _operands;
         private List<string> _operators;
 
+        public formCalculator()
         {
             InitializeComponent();
         }
