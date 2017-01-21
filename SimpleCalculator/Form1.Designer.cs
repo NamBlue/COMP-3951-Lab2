@@ -1,6 +1,6 @@
 ﻿namespace SimpleCalculator
 {
-    partial class Form1
+    partial class formCalculator
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formCalculator));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -59,13 +60,13 @@
             this.memoryGroup = new System.Windows.Forms.GroupBox();
             this.opertBox = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.numGroup.SuspendLayout();
             this.onGroup.SuspendLayout();
             this.memoryGroup.SuspendLayout();
             this.opertBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -378,34 +379,37 @@
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             // 
-            // pictureBox1
+            // pictureBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(32, 648);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(681, 207);
-            this.pictureBox1.TabIndex = 31;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pictureBox.Location = new System.Drawing.Point(35, 675);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(743, 216);
+            this.pictureBox.TabIndex = 31;
+            this.pictureBox.TabStop = false;
             // 
-            // Form1
+            // formCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 894);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.opertBox);
             this.Controls.Add(this.memoryGroup);
             this.Controls.Add(this.onGroup);
             this.Controls.Add(this.numGroup);
             this.Controls.Add(this.Display);
-            this.Name = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "formCalculator";
             this.Text = "Calculator";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.numGroup.ResumeLayout(false);
             this.onGroup.ResumeLayout(false);
             this.memoryGroup.ResumeLayout(false);
             this.opertBox.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,7 +447,7 @@
         private System.Windows.Forms.GroupBox memoryGroup;
         private System.Windows.Forms.GroupBox opertBox;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox;
     }
 }
 
