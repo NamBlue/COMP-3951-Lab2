@@ -409,9 +409,11 @@
             // EquationDisplay
             // 
             this.EquationDisplay.AutoSize = true;
-            this.EquationDisplay.Location = new System.Drawing.Point(63, 9);
+            this.EquationDisplay.BackColor = System.Drawing.SystemColors.Control;
+            this.EquationDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EquationDisplay.Location = new System.Drawing.Point(29, 20);
             this.EquationDisplay.Name = "EquationDisplay";
-            this.EquationDisplay.Size = new System.Drawing.Size(0, 25);
+            this.EquationDisplay.Size = new System.Drawing.Size(66, 31);
             this.EquationDisplay.TabIndex = 32;
             // 
             // picture
