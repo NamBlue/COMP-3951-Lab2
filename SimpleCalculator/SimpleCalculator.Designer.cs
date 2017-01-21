@@ -59,15 +59,17 @@
             this.onGroup = new System.Windows.Forms.GroupBox();
             this.memoryGroup = new System.Windows.Forms.GroupBox();
             this.opertBox = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.clearBox = new System.Windows.Forms.GroupBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.EquationDisplay = new System.Windows.Forms.Label();
+            this.picture = new System.Windows.Forms.PictureBox();
             this.numGroup.SuspendLayout();
             this.onGroup.SuspendLayout();
             this.memoryGroup.SuspendLayout();
             this.opertBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.clearBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -211,11 +213,13 @@
             // 
             // Display
             // 
-            this.Display.Location = new System.Drawing.Point(32, 40);
-            this.Display.Multiline = true;
+            this.Display.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Display.Location = new System.Drawing.Point(35, 28);
             this.Display.Name = "Display";
-            this.Display.Size = new System.Drawing.Size(682, 64);
+            this.Display.ReadOnly = true;
+            this.Display.Size = new System.Drawing.Size(744, 68);
             this.Display.TabIndex = 15;
+            this.Display.TextChanged += new System.EventHandler(this.Display_TextChanged);
             // 
             // buttonMplus
             // 
@@ -376,17 +380,17 @@
             this.opertBox.TabIndex = 29;
             this.opertBox.TabStop = false;
             // 
-            // groupBox1
+            // clearBox
             // 
-            this.groupBox1.Controls.Add(this.buttonCE);
-            this.groupBox1.Controls.Add(this.buttonClr);
-            this.groupBox1.Controls.Add(this.buttonBS);
-            this.groupBox1.Controls.Add(this.buttonEQ);
-            this.groupBox1.Location = new System.Drawing.Point(581, 235);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(133, 379);
-            this.groupBox1.TabIndex = 30;
-            this.groupBox1.TabStop = false;
+            this.clearBox.Controls.Add(this.buttonCE);
+            this.clearBox.Controls.Add(this.buttonClr);
+            this.clearBox.Controls.Add(this.buttonBS);
+            this.clearBox.Controls.Add(this.buttonEQ);
+            this.clearBox.Location = new System.Drawing.Point(634, 245);
+            this.clearBox.Name = "clearBox";
+            this.clearBox.Size = new System.Drawing.Size(145, 395);
+            this.clearBox.TabIndex = 30;
+            this.clearBox.TabStop = false;
             // 
             // pictureBox
             // 
@@ -405,13 +409,23 @@
             this.EquationDisplay.Size = new System.Drawing.Size(0, 25);
             this.EquationDisplay.TabIndex = 32;
             // 
+            // picture
+            // 
+            this.picture.Location = new System.Drawing.Point(35, 663);
+            this.picture.Name = "picture";
+            this.picture.Size = new System.Drawing.Size(728, 226);
+            this.picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picture.TabIndex = 35;
+            this.picture.TabStop = false;
+            // 
             // formCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 894);
+            this.Controls.Add(this.picture);
             this.Controls.Add(this.EquationDisplay);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.clearBox);
             this.Controls.Add(this.opertBox);
             this.Controls.Add(this.memoryGroup);
             this.Controls.Add(this.onGroup);
@@ -424,8 +438,9 @@
             this.onGroup.ResumeLayout(false);
             this.memoryGroup.ResumeLayout(false);
             this.opertBox.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.clearBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -462,9 +477,10 @@
         private System.Windows.Forms.GroupBox onGroup;
         private System.Windows.Forms.GroupBox memoryGroup;
         private System.Windows.Forms.GroupBox opertBox;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox clearBox;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label EquationDisplay;
+        private System.Windows.Forms.PictureBox picture;
     }
 }
 
