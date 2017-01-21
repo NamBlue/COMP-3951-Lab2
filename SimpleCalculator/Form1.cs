@@ -17,12 +17,28 @@ namespace SimpleCalculator
             InitializeComponent();
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void numButton_Click(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Debug.Print("Entered numButton_Click");
+            try
+            {
+                if(sender is Button)
+                {
+                    Button button = (Button)sender;
+                    Display.Text += button.Text;
+                }
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.Print(ex.ToString());
+            }
+            finally
+            {
+                System.Diagnostics.Debug.Print("Exiting numButton_Click");
+            }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
 
         }
