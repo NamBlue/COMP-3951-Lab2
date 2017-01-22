@@ -20,6 +20,7 @@ namespace SimpleCalculator
         private List<string> _operators;
         private double _total;
         private string _memory;
+        private bool _power;
 
         /// <summary>
         /// Constructor for the Simple Calculator
@@ -32,6 +33,13 @@ namespace SimpleCalculator
             _total = 0;
             _memory = "";
             this.KeyPreview = true;
+            memoryGroup.Visible = false;
+            numGroup.Visible = false;
+            opertGroup.Visible = false;
+            clearGroup.Visible = false;
+            bracketGroup.Visible = false;
+            picture.Visible = false;
+            Display.Visible = false;
         }
 
         /// <summary>
@@ -309,6 +317,36 @@ namespace SimpleCalculator
             finally
             {
                 System.Diagnostics.Debug.Print("Exiting calculate");
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonOn_Click(object sender, EventArgs e)
+        {
+            if (_power == false)
+            {
+                memoryGroup.Visible = true;
+                numGroup.Visible = true;
+                opertGroup.Visible = true;
+                clearGroup.Visible = true;
+                bracketGroup.Visible = true;
+                picture.Visible = true;
+                Display.Visible = true;
+                _power = true;
+            }else
+            {
+                memoryGroup.Visible = false;
+                numGroup.Visible = false;
+                opertGroup.Visible = false;
+                clearGroup.Visible = false;
+                bracketGroup.Visible = false;
+                picture.Visible = false;
+                Display.Visible = false;
+                _power = false;
             }
         }
 

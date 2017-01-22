@@ -58,8 +58,8 @@
             this.numGroup = new System.Windows.Forms.GroupBox();
             this.onGroup = new System.Windows.Forms.GroupBox();
             this.memoryGroup = new System.Windows.Forms.GroupBox();
-            this.opertBox = new System.Windows.Forms.GroupBox();
-            this.clearBox = new System.Windows.Forms.GroupBox();
+            this.opertGroup = new System.Windows.Forms.GroupBox();
+            this.clearGroup = new System.Windows.Forms.GroupBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.EquationDisplay = new System.Windows.Forms.Label();
             this.picture = new System.Windows.Forms.PictureBox();
@@ -69,8 +69,8 @@
             this.numGroup.SuspendLayout();
             this.onGroup.SuspendLayout();
             this.memoryGroup.SuspendLayout();
-            this.opertBox.SuspendLayout();
-            this.clearBox.SuspendLayout();
+            this.opertGroup.SuspendLayout();
+            this.clearGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.bracketGroup.SuspendLayout();
@@ -174,6 +174,7 @@
             this.buttonOn.TabIndex = 10;
             this.buttonOn.Text = "On";
             this.buttonOn.UseVisualStyleBackColor = true;
+            this.buttonOn.Click += new System.EventHandler(this.buttonOn_Click);
             // 
             // buttonAdd
             // 
@@ -380,31 +381,31 @@
             this.memoryGroup.TabIndex = 28;
             this.memoryGroup.TabStop = false;
             // 
-            // opertBox
+            // opertGroup
             // 
-            this.opertBox.BackColor = System.Drawing.Color.Transparent;
-            this.opertBox.Controls.Add(this.buttonAdd);
-            this.opertBox.Controls.Add(this.buttonSub);
-            this.opertBox.Controls.Add(this.buttonMult);
-            this.opertBox.Controls.Add(this.buttonDiv);
-            this.opertBox.Location = new System.Drawing.Point(450, 235);
-            this.opertBox.Name = "opertBox";
-            this.opertBox.Size = new System.Drawing.Size(137, 379);
-            this.opertBox.TabIndex = 29;
-            this.opertBox.TabStop = false;
+            this.opertGroup.BackColor = System.Drawing.Color.Transparent;
+            this.opertGroup.Controls.Add(this.buttonAdd);
+            this.opertGroup.Controls.Add(this.buttonSub);
+            this.opertGroup.Controls.Add(this.buttonMult);
+            this.opertGroup.Controls.Add(this.buttonDiv);
+            this.opertGroup.Location = new System.Drawing.Point(491, 245);
+            this.opertGroup.Name = "opertGroup";
+            this.opertGroup.Size = new System.Drawing.Size(149, 395);
+            this.opertGroup.TabIndex = 29;
+            this.opertGroup.TabStop = false;
             // 
-            // clearBox
+            // clearGroup
             // 
-            this.clearBox.BackColor = System.Drawing.Color.Transparent;
-            this.clearBox.Controls.Add(this.buttonCE);
-            this.clearBox.Controls.Add(this.buttonClr);
-            this.clearBox.Controls.Add(this.buttonBS);
-            this.clearBox.Controls.Add(this.buttonEQ);
-            this.clearBox.Location = new System.Drawing.Point(602, 235);
-            this.clearBox.Name = "clearBox";
-            this.clearBox.Size = new System.Drawing.Size(145, 379);
-            this.clearBox.TabIndex = 30;
-            this.clearBox.TabStop = false;
+            this.clearGroup.BackColor = System.Drawing.Color.Transparent;
+            this.clearGroup.Controls.Add(this.buttonCE);
+            this.clearGroup.Controls.Add(this.buttonClr);
+            this.clearGroup.Controls.Add(this.buttonBS);
+            this.clearGroup.Controls.Add(this.buttonEQ);
+            this.clearGroup.Location = new System.Drawing.Point(657, 245);
+            this.clearGroup.Name = "clearGroup";
+            this.clearGroup.Size = new System.Drawing.Size(158, 395);
+            this.clearGroup.TabIndex = 30;
+            this.clearGroup.TabStop = false;
             // 
             // pictureBox
             // 
@@ -475,8 +476,8 @@
             this.Controls.Add(this.bracketGroup);
             this.Controls.Add(this.picture);
             this.Controls.Add(this.EquationDisplay);
-            this.Controls.Add(this.clearBox);
-            this.Controls.Add(this.opertBox);
+            this.Controls.Add(this.clearGroup);
+            this.Controls.Add(this.opertGroup);
             this.Controls.Add(this.memoryGroup);
             this.Controls.Add(this.onGroup);
             this.Controls.Add(this.numGroup);
@@ -491,8 +492,8 @@
             this.numGroup.ResumeLayout(false);
             this.onGroup.ResumeLayout(false);
             this.memoryGroup.ResumeLayout(false);
-            this.opertBox.ResumeLayout(false);
-            this.clearBox.ResumeLayout(false);
+            this.opertGroup.ResumeLayout(false);
+            this.clearGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).EndInit();
             this.bracketGroup.ResumeLayout(false);
@@ -531,8 +532,8 @@
         private System.Windows.Forms.GroupBox numGroup;
         private System.Windows.Forms.GroupBox onGroup;
         private System.Windows.Forms.GroupBox memoryGroup;
-        private System.Windows.Forms.GroupBox opertBox;
-        private System.Windows.Forms.GroupBox clearBox;
+        private System.Windows.Forms.GroupBox opertGroup;
+        private System.Windows.Forms.GroupBox clearGroup;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label EquationDisplay;
         private System.Windows.Forms.PictureBox picture;
