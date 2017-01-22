@@ -1,4 +1,5 @@
-*.exe
-*.pdb
-*.suo
-*.cache
+SimpleCalculator/bin/Debug/*.exe
+SimpleCalculator/bin/Debug/*.pdb
+SimpleCalculator/bin/Debug/*.suo
+SimpleCalculator/bin/Debug/*.cache
+SimpleCalculator/bin/Debug/
