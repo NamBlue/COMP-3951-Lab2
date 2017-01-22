@@ -1,30 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SimpleCalculator
 {
     /// <summary>
-    /// Purpose: To create a simple calculator.  
+    /// Purpose: To create a simple calculator.
     /// Input: None
     /// Output: Displays a calculator
     /// Author: George Lee and Steven Ma
     /// Date: 21/01/2017
     /// Updated by:George Lee and Steven Ma
     /// Date: 21/01/2017
-    /// Based on: https://goo.gl/cMiPAE
+    /// Based on: n/a
     /// </summary>
     public partial class SimpleCalculator : Form
     {
         private List<double> _operands;
         private List<string> _operators;
         private double _total;
+        private string _memory;
 
         /// <summary>
         /// Constructor for the Simple Calculator
@@ -35,8 +30,120 @@ namespace SimpleCalculator
             _operands = new List<double>();
             _operators = new List<string>();
             _total = 0;
+            _memory = "";
             this.KeyPreview = true;
         }
+
+        /// <summary>
+        /// Calculates the numbers added depending which operand was clicked
+        /// </summary>
+        private void calculate()
+        {
+            System.Diagnostics.Debug.Print("Entered calculate");
+            try
+            {
+                _total = _operands[0];
+                for (int i = 0; i < _operands.Count - 1; i++)
+                {
+                    if (_operators[i] != null)
+                    {
+                        switch (_operators[i])
+                        {
+                            case "+":
+                                _total += _operands[i + 1];
+                                break;
+
+                            case "-":
+                                _total -= _operands[i + 1];
+                                break;
+
+                            case "/":
+                                _total /= _operands[i + 1];
+                                break;
+
+                            case "*":
+                                _total *= _operands[i + 1];
+                                break;
+                        }
+                    }
+                }
+                Display.Text = _total.ToString();
+                _total = 0;
+                _operators.Clear();
+                _operands.Clear();
+                EquationDisplay.Text = "";
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print(ex.ToString());
+            }
+            finally
+            {
+                System.Diagnostics.Debug.Print("Exiting calculate");
+            }
+        }
+
+        private void SimpleCalculator_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            System.Diagnostics.Debug.Print("Entered SimpleCalculator_KeyPress");
+            try
+            {
+                if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                {
+                    if (Display.Text.StartsWith("0"))
+                    {
+                        Display.Text = Display.Text.Remove(0, 1);
+                    }
+                    Display.Text += e.KeyChar;
+                }
+                switch (e.KeyChar)
+                {
+                    case '\b':
+                        if (!string.IsNullOrWhiteSpace(Display.Text))
+                        {
+                            Display.Text = Display.Text.Remove(Display.Text.Length - 1, 1);
+                        }
+                        break;
+
+                    case '-':
+                    case '/':
+                    case '+':
+                    case '*':
+                        if (!String.IsNullOrWhiteSpace(Display.Text))
+                        {
+                            _operands.Add(double.Parse(Display.Text));
+                        }
+                        _operators.Add(e.KeyChar.ToString());
+                        Display.Text += e.KeyChar;
+                        EquationDisplay.Text += Display.Text;
+                        Display.Text = "0";
+                        break;
+
+                    case '=':
+                    case '\r':
+                        calculate();
+                        break;
+
+                    case '\u001b':
+                        _total = 0;
+                        _operators.Clear();
+                        _operands.Clear();
+                        EquationDisplay.Text = "";
+                        Display.Text = "0";
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print(ex.ToString());
+            }
+            finally
+            {
+                System.Diagnostics.Debug.Print("Exiting SimpleCalculator_KeyPress");
+            }
+        }
+
+        #region ButtonEventHandlers
 
         /// <summary>
         /// Checks the type of number button clicked to display
@@ -48,12 +155,12 @@ namespace SimpleCalculator
             System.Diagnostics.Debug.Print("Entered numButton_Click");
             try
             {
-                if(sender is Button)
+                if (sender is Button)
                 {
                     Button button = (Button)sender;
                     if (button.Text == "+/-")
                     {
-                        if(Display.Text.StartsWith("-"))
+                        if (Display.Text.StartsWith("-"))
                         {
                             Display.Text = Display.Text.Remove(0, 1);
                         }
@@ -72,7 +179,7 @@ namespace SimpleCalculator
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 System.Diagnostics.Debug.Print(ex.ToString());
             }
@@ -135,6 +242,7 @@ namespace SimpleCalculator
                         case "CE":
                             Display.Text = "0";
                             break;
+
                         case "C":
                             _total = 0;
                             _operators.Clear();
@@ -142,12 +250,14 @@ namespace SimpleCalculator
                             EquationDisplay.Text = "";
                             Display.Text = "0";
                             break;
+
                         case "<-":
-                            if(!string.IsNullOrWhiteSpace(Display.Text))
+                            if (!string.IsNullOrWhiteSpace(Display.Text))
                             {
                                 Display.Text = Display.Text.Remove(Display.Text.Length - 1, 1);
-                            }                            
+                            }
                             break;
+
                         case "=":
                             _operands.Add(double.Parse(Display.Text));
                             EquationDisplay.Text += Display.Text;
@@ -166,41 +276,31 @@ namespace SimpleCalculator
             }
         }
 
-        /// <summary>
-        /// Calculates the numbers added depending which operand was clicked
-        /// </summary>
-        private void calculate()
+        private void memoryButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.Print("Entered calculate");
+            System.Diagnostics.Debug.Print("Entered memoryButton_Click");
             try
             {
-                _total = _operands[0];
-                for (int i = 0; i < _operands.Count - 1; i++)
+                if (sender is Button)
                 {
-                    if (_operators[i] != null)
+                    Button button = (Button)sender;
+
+                    switch (button.Text)
                     {
-                        switch (_operators[i])
-                        {
-                            case "+":
-                                _total += _operands[i + 1];
-                                break;
-                            case "-":
-                                _total -= _operands[i + 1];
-                                break;
-                            case "/":
-                                _total /= _operands[i + 1];
-                                break;
-                            case "*":
-                                _total *= _operands[i + 1];
-                                break;
-                        }
+                        case "MS":
+                        case "M+":
+                            _memory = Display.Text;
+                            Display.Text = "0";
+                            break;
+
+                        case "MC":
+                            _memory = "";
+                            break;
+                        case "MR":
+                            Display.Text = _memory;
+                            break;
                     }
                 }
-                Display.Text = _total.ToString();
-                _total = 0;
-                _operators.Clear();
-                _operands.Clear();
-                EquationDisplay.Text = "";
             }
             catch (Exception ex)
             {
@@ -212,71 +312,6 @@ namespace SimpleCalculator
             }
         }
 
-        /// <summary>
-        /// Displays text change.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Display_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SimpleCalculator_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            System.Diagnostics.Debug.Print("Entered calculate");
-            try
-            {
-                if (e.KeyChar >= 48 && e.KeyChar <= 57)
-                {
-                    if (Display.Text.StartsWith("0"))
-                    {
-                        Display.Text = Display.Text.Remove(0, 1);
-                    }
-                    Display.Text += e.KeyChar;
-                }
-                switch (e.KeyChar)
-                {
-                    case '\b':
-                        if (!string.IsNullOrWhiteSpace(Display.Text))
-                        {
-                            Display.Text = Display.Text.Remove(Display.Text.Length - 1, 1);
-                        }
-                        break;
-                    case '-':
-                    case '/':
-                    case '+':
-                    case '*':
-                        if (!String.IsNullOrWhiteSpace(Display.Text))
-                        {
-                            _operands.Add(double.Parse(Display.Text));
-                        }
-                        _operators.Add(e.KeyChar.ToString());
-                        Display.Text += e.KeyChar;
-                        EquationDisplay.Text += Display.Text;
-                        Display.Text = "0";
-                        break;
-                    case '=':
-                    case '\r':
-                        calculate();
-                        break;
-                    case '\u001b':
-                        _total = 0;
-                        _operators.Clear();
-                        _operands.Clear();
-                        EquationDisplay.Text = "";
-                        Display.Text = "0";
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.Print(ex.ToString());
-            }
-            finally
-            {
-                System.Diagnostics.Debug.Print("Exiting calculate");
-            }
-        }
+        #endregion ButtonEventHandlers
     }
 }
