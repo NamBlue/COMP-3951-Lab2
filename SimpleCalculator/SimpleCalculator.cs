@@ -18,7 +18,7 @@ namespace SimpleCalculator
     /// Date: 21/01/2017
     /// Updated by:George Lee and Steven Ma
     /// Date: 21/01/2017
-    /// Based on: n/a
+    /// Based on: https://goo.gl/cMiPAE
     /// </summary>
     public partial class SimpleCalculator : Form
     {
@@ -220,6 +220,5 @@ namespace SimpleCalculator
         {
 
         }
-
     }
 }

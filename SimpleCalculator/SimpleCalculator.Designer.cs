@@ -63,6 +63,9 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.EquationDisplay = new System.Windows.Forms.Label();
             this.picture = new System.Windows.Forms.PictureBox();
+            this.bracketGroup = new System.Windows.Forms.GroupBox();
+            this.bracketRight = new System.Windows.Forms.Button();
+            this.bracketLeft = new System.Windows.Forms.Button();
             this.numGroup.SuspendLayout();
             this.onGroup.SuspendLayout();
             this.memoryGroup.SuspendLayout();
@@ -70,6 +73,7 @@
             this.clearBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
+            this.bracketGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -421,12 +425,41 @@
             // 
             this.picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picture.Image = global::SimpleCalculator.Properties.Resources.cool_pictures_24;
-            this.picture.Location = new System.Drawing.Point(376, 674);
+            this.picture.Location = new System.Drawing.Point(377, 646);
             this.picture.Name = "picture";
             this.picture.Size = new System.Drawing.Size(439, 226);
             this.picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picture.TabIndex = 35;
             this.picture.TabStop = false;
+            // 
+            // bracketGroup
+            // 
+            this.bracketGroup.BackColor = System.Drawing.Color.Transparent;
+            this.bracketGroup.Controls.Add(this.bracketRight);
+            this.bracketGroup.Controls.Add(this.bracketLeft);
+            this.bracketGroup.Location = new System.Drawing.Point(35, 661);
+            this.bracketGroup.Name = "bracketGroup";
+            this.bracketGroup.Size = new System.Drawing.Size(291, 120);
+            this.bracketGroup.TabIndex = 36;
+            this.bracketGroup.TabStop = false;
+            // 
+            // bracketRight
+            // 
+            this.bracketRight.Location = new System.Drawing.Point(163, 30);
+            this.bracketRight.Name = "bracketRight";
+            this.bracketRight.Size = new System.Drawing.Size(112, 67);
+            this.bracketRight.TabIndex = 2;
+            this.bracketRight.Text = ")";
+            this.bracketRight.UseVisualStyleBackColor = true;
+            // 
+            // bracketLeft
+            // 
+            this.bracketLeft.Location = new System.Drawing.Point(23, 30);
+            this.bracketLeft.Name = "bracketLeft";
+            this.bracketLeft.Size = new System.Drawing.Size(112, 67);
+            this.bracketLeft.TabIndex = 1;
+            this.bracketLeft.Text = "(";
+            this.bracketLeft.UseVisualStyleBackColor = true;
             // 
             // SimpleCalculator
             // 
@@ -434,7 +467,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SimpleCalculator.Properties.Resources.maxresdefault;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(867, 931);
+            this.ClientSize = new System.Drawing.Size(867, 896);
+            this.Controls.Add(this.bracketGroup);
             this.Controls.Add(this.picture);
             this.Controls.Add(this.EquationDisplay);
             this.Controls.Add(this.clearBox);
@@ -443,6 +477,8 @@
             this.Controls.Add(this.onGroup);
             this.Controls.Add(this.numGroup);
             this.Controls.Add(this.Display);
+            this.Enabled = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -455,6 +491,7 @@
             this.clearBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).EndInit();
+            this.bracketGroup.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,6 +532,9 @@
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label EquationDisplay;
         private System.Windows.Forms.PictureBox picture;
+        private System.Windows.Forms.GroupBox bracketGroup;
+        private System.Windows.Forms.Button bracketRight;
+        private System.Windows.Forms.Button bracketLeft;
     }
 }
 
