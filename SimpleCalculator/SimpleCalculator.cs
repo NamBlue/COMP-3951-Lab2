@@ -102,7 +102,7 @@ namespace SimpleCalculator
                     _operators.Add(button.Text);
                     Display.Text += button.Text;
                     EquationDisplay.Text += Display.Text;
-                    Display.Text = "";
+                    Display.Text = "0";
                 }
             }
             catch (Exception ex)
