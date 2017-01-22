@@ -35,6 +35,7 @@ namespace SimpleCalculator
             _operands = new List<double>();
             _operators = new List<string>();
             _total = 0;
+            this.KeyPreview = true;
         }
 
         /// <summary>
@@ -221,5 +222,61 @@ namespace SimpleCalculator
 
         }
 
+        private void SimpleCalculator_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            System.Diagnostics.Debug.Print("Entered calculate");
+            try
+            {
+                if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                {
+                    if (Display.Text.StartsWith("0"))
+                    {
+                        Display.Text = Display.Text.Remove(0, 1);
+                    }
+                    Display.Text += e.KeyChar;
+                }
+                switch (e.KeyChar)
+                {
+                    case '\b':
+                        if (!string.IsNullOrWhiteSpace(Display.Text))
+                        {
+                            Display.Text = Display.Text.Remove(Display.Text.Length - 1, 1);
+                        }
+                        break;
+                    case '-':
+                    case '/':
+                    case '+':
+                    case '*':
+                        if (!String.IsNullOrWhiteSpace(Display.Text))
+                        {
+                            _operands.Add(double.Parse(Display.Text));
+                        }
+                        _operators.Add(e.KeyChar.ToString());
+                        Display.Text += e.KeyChar;
+                        EquationDisplay.Text += Display.Text;
+                        Display.Text = "0";
+                        break;
+                    case '=':
+                    case '\r':
+                        calculate();
+                        break;
+                    case '\u001b':
+                        _total = 0;
+                        _operators.Clear();
+                        _operands.Clear();
+                        EquationDisplay.Text = "";
+                        Display.Text = "0";
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print(ex.ToString());
+            }
+            finally
+            {
+                System.Diagnostics.Debug.Print("Exiting calculate");
+            }
+        }
     }
 }
