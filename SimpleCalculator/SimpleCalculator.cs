@@ -120,7 +120,14 @@ namespace SimpleCalculator
                     case '\b':
                         if (!string.IsNullOrWhiteSpace(Display.Text))
                         {
-                            Display.Text = Display.Text.Remove(Display.Text.Length - 1, 1);
+                            if (Display.Text.Length == 1)
+                            {
+                                Display.Text = "0";
+                            }
+                            else
+                            {
+                                Display.Text = Display.Text.Remove(Display.Text.Length - 1, 1);
+                            }
                         }
                         break;
 
@@ -128,10 +135,7 @@ namespace SimpleCalculator
                     case '/':
                     case '+':
                     case '*':
-                        if (!String.IsNullOrWhiteSpace(Display.Text))
-                        {
-                            _operands.Add(double.Parse(Display.Text));
-                        }
+                        _operands.Add(double.Parse(Display.Text));
                         _operators.Add(e.KeyChar.ToString());
                         Display.Text += e.KeyChar;
                         EquationDisplay.Text += Display.Text;
@@ -140,6 +144,7 @@ namespace SimpleCalculator
 
                     case '=':
                     case '\r':
+                        _operands.Add(double.Parse(Display.Text));
                         calculate();
                         break;
 
@@ -277,7 +282,11 @@ namespace SimpleCalculator
                             break;
 
                         case "<-":
-                            if (!string.IsNullOrWhiteSpace(Display.Text))
+                            if (Display.Text.Length == 1)
+                            {
+                                Display.Text = "0";
+                            }
+                            else
                             {
                                 Display.Text = Display.Text.Remove(Display.Text.Length - 1, 1);
                             }
