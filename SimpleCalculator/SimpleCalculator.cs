@@ -373,6 +373,7 @@ namespace SimpleCalculator
                 Display.Visible = false;
                 _power = false;
                 clear();
+                _memory = "0";
             }
         }
 
