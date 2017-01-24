@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
+[assembly: CLSCompliant(true)]
+
 namespace SimpleCalculator
 {
     /// <summary>
     /// Purpose: The purpose of this class is to create a simple calculator
     /// on a Windows form.  The calculator is able to add, subtract, multiply
     /// and divide positive or negative numbers.  The calculator is also able
-    /// to store calculations in memory and use either the keyboard or the 
+    /// to store calculations in memory and use either the keyboard or the
     /// form's buttons for input.
     /// Input: None
     /// Output: Displays a calculator to user
@@ -35,13 +37,12 @@ namespace SimpleCalculator
             _operands = new List<double>();
             _operators = new List<string>();
             _total = 0;
-            _memory = "";
+            _memory = "0";
             this.KeyPreview = true;
             memoryGroup.Visible = false;
             numGroup.Visible = false;
             opertGroup.Visible = false;
             clearGroup.Visible = false;
-            bracketGroup.Visible = false;
             picture.Visible = false;
             Display.Visible = false;
         }
@@ -217,7 +218,7 @@ namespace SimpleCalculator
         }
 
         /// <summary>
-        /// Adds operands to the display text box depending on which 
+        /// Adds operands to the display text box depending on which
         /// operand button was clicked
         /// </summary>
         /// <param name="sender">Object generated for the operator buttons</param>
@@ -318,14 +319,17 @@ namespace SimpleCalculator
                     switch (button.Text)
                     {
                         case "MS":
-                        case "M+":
                             _memory = Display.Text;
-                            Display.Text = "0";
+                            break;
+
+                        case "M+":
+                            _memory = (double.Parse(_memory) + double.Parse(Display.Text)).ToString();
                             break;
 
                         case "MC":
-                            _memory = "";
+                            _memory = "0";
                             break;
+
                         case "MR":
                             Display.Text = _memory;
                             break;
@@ -355,23 +359,23 @@ namespace SimpleCalculator
                 numGroup.Visible = true;
                 opertGroup.Visible = true;
                 clearGroup.Visible = true;
-                bracketGroup.Visible = true;
                 picture.Visible = true;
                 Display.Visible = true;
                 _power = true;
-            }else
+            }
+            else
             {
                 memoryGroup.Visible = false;
                 numGroup.Visible = false;
                 opertGroup.Visible = false;
                 clearGroup.Visible = false;
-                bracketGroup.Visible = false;
                 picture.Visible = false;
                 Display.Visible = false;
                 _power = false;
                 clear();
             }
         }
+
         #endregion ButtonEventHandlers
     }
 }
