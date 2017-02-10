@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-[assembly: CLSCompliant(true)]
+[assembly: CLSCompliant(false)]
 
 namespace SimpleCalculator
 {
@@ -23,19 +23,21 @@ namespace SimpleCalculator
     public partial class SimpleCalculator : Form
     {
         //Array of doubles to store the operands inputted
-        private List<double> _operands;
-        
+        public List<double> _operands;
+
         //Array to store the strings of the operators inputted
-        private List<string> _operators;
-        
+        public List<string> _operators;
+
         //Double used to store the calculated double before displaying to user
-        private double _total;
-        
+        public double _total;
+
         //String used for writting the calculator's memory function
-        private string _memory;
-        
+        public string _memory;
+
         //Boolean value for flagging if the calculator is turned on/off
-        private bool _power;
+        public bool _power;
+
+        public TextBox _display;
 
         /// <summary>
         /// Constructor for the Simple Calculator
@@ -54,13 +56,14 @@ namespace SimpleCalculator
             clearGroup.Visible = false;
             picture.Visible = false;
             Display.Visible = false;
+            _display = Display;
         }
 
         /// <summary>
         /// Calculates the final numbers and operands together and displays
         /// the calculation to the user in the display textbox
         /// </summary>
-        private void calculate()
+        public void calculate()
         {
             System.Diagnostics.Debug.Print("Entered calculate");
             try
@@ -123,7 +126,7 @@ namespace SimpleCalculator
         /// </summary>
         /// <param name="sender">Sender object to represent the keyboard</param>
         /// <param name="e">Keypress event generated from a keypress</param>
-        private void SimpleCalculator_KeyPress(object sender, KeyPressEventArgs e)
+        public void SimpleCalculator_KeyPress(object sender, KeyPressEventArgs e)
         {
             System.Diagnostics.Debug.Print("Entered SimpleCalculator_KeyPress");
             try
@@ -187,7 +190,7 @@ namespace SimpleCalculator
         /// <summary>
         /// Resets the calculator and clears the display
         /// </summary>
-        private void clear()
+        public void clear()
         {
             _total = 0;
             _operators.Clear();
