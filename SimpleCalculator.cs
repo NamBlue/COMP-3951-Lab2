@@ -81,6 +81,12 @@ namespace SimpleCalculator
                                 break;
 
                             case "/":
+                                if(_operands[i+1] == 0)
+                                {
+                                    clear();
+                                    MessageBox.Show("Error: Cannot Divide By Zero", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
                                 _total /= _operands[i + 1];
                                 break;
 
@@ -89,6 +95,12 @@ namespace SimpleCalculator
                                 break;
                         }
                     }
+                }
+                if(double.IsInfinity(_total))
+                {
+                    clear();
+                    MessageBox.Show("Error: Buffer Overflow, The result is too large.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 Display.Text = _total.ToString();
                 _total = 0;
