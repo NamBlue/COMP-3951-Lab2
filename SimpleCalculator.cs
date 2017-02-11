@@ -36,13 +36,23 @@ namespace SimpleCalculator
 
         //Boolean value for flagging if the calculator is turned on/off
         public bool _power;
-
+        //Public reference testing purposes
         //Unit testing only 
         public TextBox _display;
+        //Public reference testing purposes
+        //Unit testing only 
         public Label _equationDisplay;
-
         //For disabling error messageboxes when testing only
         public static bool _disableMessageBox = false;
+
+        //Public reference testing purposes
+        public GroupBox _memoryGroupbox;
+        //Public reference testing purposes
+        public GroupBox _numGroupbox;
+        //Public reference testing purposes
+        public GroupBox _opertGroupbox;
+        //Public reference testing purposes
+        public GroupBox _clearGroupbox;
 
         /// <summary>
         /// Constructor for the Simple Calculator
@@ -55,9 +65,13 @@ namespace SimpleCalculator
             _total = 0;
             _memory = "0";
             this.KeyPreview = true;
+            _memoryGroupbox = memoryGroup;
             memoryGroup.Visible = false;
+            _numGroupbox = numGroup;
             numGroup.Visible = false;
+            _opertGroupbox = opertGroup;
             opertGroup.Visible = false;
+            _clearGroupbox = clearGroup;
             clearGroup.Visible = false;
             picture.Visible = false;
             Display.Visible = false;
