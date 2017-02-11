@@ -171,7 +171,9 @@ namespace SimpleCalculatorTests
                 char digitkeypressed = char.Parse(gen.Next(10).ToString());
                 KeyPressEventArgs e = new KeyPressEventArgs((char)digitkeypressed);
                 calc.SimpleCalculator_KeyPress(null, e);
-                expectedresult[i] = digitkeypressed;
+                if (i == 0 && digitkeypressed == '0')
+                    continue;
+                 expectedresult[i] = digitkeypressed;
             }
 
             //Assert
