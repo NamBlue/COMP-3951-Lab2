@@ -157,5 +157,53 @@ namespace SimpleCalculatorTests
                                 && calc._operators.Count == 0
                                 && String.IsNullOrWhiteSpace(calc._equationDisplay.Text));
         }
+
+        [TestMethod]
+        public void TestDigitKeyPress()
+        {
+            //Arrange
+            SimpleCalculator.SimpleCalculator calc = new SimpleCalculator.SimpleCalculator();
+            char[] expectedresult = new char[100];
+
+            //Act
+            for (int i = 0; i < 100; i++)
+            {
+                char digitkeypressed = char.Parse(gen.Next(10).ToString());
+                KeyPressEventArgs e = new KeyPressEventArgs((char)digitkeypressed);
+                calc.SimpleCalculator_KeyPress(null, e);
+                expectedresult[i] = digitkeypressed;
+            }
+
+            //Assert
+            Assert.AreEqual(new string(expectedresult), calc._display.Text);
+        }
+
+        [TestMethod]
+        public void TestOtherKeyPress()
+        {
+            //Arrange
+            SimpleCalculator.SimpleCalculator calc = new SimpleCalculator.SimpleCalculator();
+
+            //Act
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('1'));
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('\b'));
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('2'));
+            //backspace key
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('\u001b'));
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('5'));
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('+'));
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('7'));
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('-'));
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('6'));
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('*'));
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('4'));
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('/'));
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('2'));
+            calc.SimpleCalculator_KeyPress(null, new KeyPressEventArgs('='));
+
+
+            //Assert
+            Assert.AreEqual("12", calc._display.Text);
+        }
     }
 }
