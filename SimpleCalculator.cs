@@ -37,7 +37,12 @@ namespace SimpleCalculator
         //Boolean value for flagging if the calculator is turned on/off
         public bool _power;
 
+        //Unit testing only 
         public TextBox _display;
+        public Label _equationDisplay;
+
+        //For disabling error messageboxes when testing only
+        public static bool _disableMessageBox = false;
 
         /// <summary>
         /// Constructor for the Simple Calculator
@@ -57,6 +62,7 @@ namespace SimpleCalculator
             picture.Visible = false;
             Display.Visible = false;
             _display = Display;
+            _equationDisplay = EquationDisplay;
         }
 
         /// <summary>
@@ -87,7 +93,8 @@ namespace SimpleCalculator
                                 if(_operands[i+1] == 0)
                                 {
                                     clear();
-                                    MessageBox.Show("Error: Cannot Divide By Zero", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    if(!_disableMessageBox)
+                                        MessageBox.Show("Error: Cannot Divide By Zero", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     return;
                                 }
                                 _total /= _operands[i + 1];
@@ -102,7 +109,8 @@ namespace SimpleCalculator
                 if(double.IsInfinity(_total))
                 {
                     clear();
-                    MessageBox.Show("Error: Buffer Overflow, The result is too large.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (!_disableMessageBox)
+                        MessageBox.Show("Error: Buffer Overflow, The result is too large.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 Display.Text = _total.ToString();
